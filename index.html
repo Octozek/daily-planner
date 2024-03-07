@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Planner</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Daily Planner</h1>
+
+  <div id="currentDay" class="mb-4"></div>
+
+  <div class="row">
+    <div class="col-md-2 hour">9am</div>
+    <div class="col-md-10 time-block" id="9">
+      <div class="d-flex justify-content-between align-items-center">
+        <textarea class="form-control"></textarea>
+        <button class="btn btn-primary saveBtn ml-2">Save</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2 hour">10am</div>
+    <div class="col-md-10 time-block" id="10">
+      <div class="d-flex justify-content-between align-items-center">
+        <textarea class="form-control"></textarea>
+        <button class="btn btn-primary saveBtn ml-2">Save</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2 hour">11am</div>
+    <div class="col-md-10 time-block" id="11">
+      <div class="d-flex justify-content-between align-items-center">
+        <textarea class="form-control"></textarea>
+        <button class="btn btn-primary saveBtn ml-2">Save</button>
+      </div>
+    </div>
+  </div>
+
+      <!-- Repeat the above block for each hour from 10am to 5pm -->
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Day.js -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>

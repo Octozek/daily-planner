@@ -1,0 +1,20 @@
+/* style.css */
+.past {
+    background-color: #d3d3d3; /* Light gray for past time blocks */
+  }
+  
+  .present {
+    background-color: #ff6961; /* Coral for present time block */
+  }
+  
+  .future {
+    background-color: #77dd77; /* Pastel green for future time blocks */
+  }
+
+  textarea {
+    resize: none;
+}
+
+.present {
+    background-color: aqua; /* Aqua color for the current hour */
+  }
