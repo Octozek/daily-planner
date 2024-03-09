@@ -9,10 +9,19 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="style.css">
 </head>
+
+<header>
+  <h1 class="mb-4">Daily Planner</h1>
+  <div id="currentDay" class="mb-4"></div>
+</header>
+
+
+
 <body>
 
 <div class="container mt-5">
-  <h1 class="mb-4">Daily Planner</h1>
+
+ 
 
   <div id="currentDay" class="mb-4"></div>
 
@@ -46,13 +55,9 @@
     </div>
   </div>
 
-      <!-- Repeat the above block for each hour from 10am to 5pm -->
+  <!-- Repeat the above block for each hour from 10 am to 5 pm -->
 
-    </div>
-  </div>
 </div>
-
-
 
 <!-- jQuery, Popper.js, and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -62,5 +67,11 @@
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4"></script>
 <!-- Custom JavaScript -->
 <script src="script.js"></script>
+
+<script>
+  // Set the current date under the "Daily Planner" heading
+  document.getElementById('currentDay').innerText = dayjs().format('dddd, MMMM D, YYYY');
+</script>
+
 </body>
 </html>
