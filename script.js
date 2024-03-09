@@ -21,8 +21,16 @@ $(".saveBtn").on("click", function () {
     var hour = $(this).closest(".time-block").attr("id");
     var eventText = $(this).siblings("textarea").val();
 
+    // Remove the old value from local storage, if any
+    localStorage.removeItem(hour);
+
+    // Save the new text to local storage
     localStorage.setItem(hour, eventText);
-    console.log("Saved event for hour " + hour + ": " + eventText);
+    
+    // Display a message when an appointment is saved
+    showMessage("Appointment added to local storage!");
+    // Load events after saving the new text
+    loadEvents();
 });
 
 function loadEvents() {
@@ -40,6 +48,19 @@ function loadEvents() {
 function displayCurrentDay() {
     var currentDate = dayjs().format("dddd, MMMM D, YYYY");
     $("#currentDay").text("Today is " + currentDate);
+}
+
+function showMessage(message) {
+    // Create a new alert element
+    var alertElement = $('<div class="alert alert-light text-center position-absolute w-100">' + message + '</div>');
+
+    // Insert the alert after the header and before the first hourly block
+    alertElement.insertAfter($('header'));
+
+    // Remove the alert after 3 seconds
+    setTimeout(function () {
+        alertElement.remove();
+    }, 3000);
 }
 
 $(document).ready(function () {
