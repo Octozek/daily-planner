@@ -12,9 +12,6 @@ function updateBlocks() {
             $(this).addClass("future").removeClass("past present");
         }
     });
-
-    // Highlight current hour in aqua
-    $(".present").css("background-color", "aqua");
 }
 
 $(".saveBtn").on("click", function () {
@@ -51,10 +48,10 @@ function displayCurrentDay() {
 }
 
 function showMessage(message) {
-    // Create a new alert element
-    var alertElement = $('<div class="alert alert-light text-center position-absolute w-100">' + message + '</div>');
+    // Create a new alert element with styling
+    var alertElement = $('<div class="alert alert-light text-center position-absolute w-100 alert-transparent" style="z-index: 1000;">' + message + '</div>');
 
-    // Insert the alert after the header and before the first hourly block
+    // Insert the alert after the header
     alertElement.insertAfter($('header'));
 
     // Remove the alert after 3 seconds
