@@ -1,6 +1,6 @@
 # Daily Planner
 
-![Screenshot](path/to/Screenshot%20(421).png)
+![Screenshot](images/Screenshot%20(421).png)
 
 ## Overview
 
