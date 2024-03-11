@@ -1,9 +1,12 @@
+// Function to update time block styles based on the current time
 function updateBlocks() {
     var currentTime = dayjs().hour();
 
+    // Iterate over each time block
     $(".time-block").each(function () {
         var blockHour = parseInt($(this).attr("id"));
 
+        // Apply past, present, or future class based on the current time
         if (blockHour < currentTime) {
             $(this).addClass("past").removeClass("present future");
         } else if (blockHour === currentTime) {
@@ -14,62 +17,59 @@ function updateBlocks() {
     });
 }
 
+// Event handler for saving text to local storage
 $(".saveBtn").on("click", function () {
     var hour = $(this).closest(".time-block").attr("id");
     var eventText = $(this).siblings("textarea").val();
 
-    // Remove the old value from local storage, if any
+    // Remove old value from local storage and save the new text
     localStorage.removeItem(hour);
-
-    // Save the new text to local storage
     localStorage.setItem(hour, eventText);
-    
+
     // Display a message when an appointment is saved
     showMessage("Appointment added to local storage!");
+
     // Load events after saving the new text
     loadEvents();
 });
 
+// Function to load events from local storage
 function loadEvents() {
     $(".time-block").each(function () {
         var hour = $(this).attr("id");
         var savedEvent = localStorage.getItem(hour);
 
+        // Populate textarea with saved event if exists
         if (savedEvent !== null) {
-            console.log("Loaded event for hour " + hour + ": " + savedEvent);
             $(this).find("textarea").val(savedEvent);
         }
     });
 }
 
+// Function to display the current day
 function displayCurrentDay() {
     var currentDate = dayjs().format("dddd, MMMM D, YYYY");
     $("#currentDay").text("Today is " + currentDate);
 }
 
+// Function to show temporary message on the page
 function showMessage(message) {
-    // Create a new alert element with styling
     var alertElement = $('<div class="alert alert-light text-center position-absolute w-100 alert-transparent" style="z-index: 1000;">' + message + '</div>');
-
-    // Insert the alert after the header
     alertElement.insertAfter($('header'));
-
-    // Remove the alert after 3 seconds
     setTimeout(function () {
         alertElement.remove();
     }, 3000);
 }
 
+// Initial actions when the document is ready
 $(document).ready(function () {
     displayCurrentDay();
     updateBlocks();
-
-    // Call loadEvents after a short delay to ensure the DOM is fully loaded
     setTimeout(function () {
         loadEvents();
-        console.log("loadEvents called after delay");
     }, 100);
 
+    // Set up an interval to update blocks every minute
     setInterval(function () {
         updateBlocks();
     }, 60000);
